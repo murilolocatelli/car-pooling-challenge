@@ -1,0 +1,26 @@
+application:
+  name: '@pom.artifactId@'
+  description: '@pom.description@'
+  version: '@pom.version@'
+
+server:
+  port: 8080
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      base-path:
+      path-mapping:
+        health: /status
+      exposure:
+        include: '*'
+
+spring:
+
+  jackson:
+    default-property-inclusion: non_null
+    deserialization:
+      adjust-dates-to-context-time-zone: false
